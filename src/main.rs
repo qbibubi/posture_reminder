@@ -20,7 +20,6 @@ struct State {
     start_timestamp: i64,
 }
 
-
 #[derive(Serialize)]
 struct StatusBarOutput {
     text: String,
@@ -70,8 +69,9 @@ fn main() {
     if args.len() > 1 && args[1] == "--toggle" {
         state.mode = match state.mode {
             Mode::Sitting => Mode::Standing,
-            Mode::Standing => Mode::Standing
+            Mode::Standing => Mode::Sitting
         };
+
         state.start_timestamp = Local::now().timestamp();
         
         save_state(&state);
