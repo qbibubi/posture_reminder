@@ -9,6 +9,7 @@ Very simple reminder application for my Linux setup. Core idea stems from not ut
 To build the project simply clone the git repository and run `cargo build --release`.
 ```bash
 git clone https://github.com/qbibubi/posture_reminder.git
+cd posture_reminder
 cargo build --release
 ```
 
