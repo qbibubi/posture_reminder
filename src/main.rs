@@ -106,7 +106,7 @@ fn print_status(state: &State) {
     
     if remaining_seconds > 0 {
         let minutes_left = remaining_seconds / 60;
-        text = format!("{} {}m", icon, minutes_left);
+        text = format!("{} {} minutes", icon, minutes_left);
 
         if minutes_left < 2 {
             class = String::from("warning");
@@ -114,7 +114,7 @@ fn print_status(state: &State) {
     }
     else {
         let overdue_minutes = (elapsed - target_seconds) / 60;
-        text = format!("{} +{}m", icon, overdue_minutes);
+        text = format!("{} +{} minutes", icon, overdue_minutes);
 
         class = String::from("critical");
 
@@ -125,7 +125,7 @@ fn print_status(state: &State) {
 
     let output = StatusBarOutput {
         text,
-        tooltip: format!("Current: {}\n Target: {}m\nElapsed: {}m", label, target_minutes, elapsed / 60),
+        tooltip: format!("Current: {}\n Target: {} minutes\nElapsed: {} minutes", label, target_minutes, elapsed / 60),
         class: format!("{} {}", label.to_lowercase(), class),
     };
 
